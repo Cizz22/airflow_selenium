@@ -1,0 +1,7 @@
+[2022-11-27T13:28:56.746+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: saham_one_time_historical.create_table_broker_summary manual__2022-11-27T13:21:37.286148+00:00 [queued]>
+[2022-11-27T13:29:34.926+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: saham_one_time_historical.create_table_broker_summary manual__2022-11-27T13:21:37.286148+00:00 [queued]>
+[2022-11-27T13:29:36.027+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-27T13:29:36.256+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 4
+[2022-11-27T13:29:36.367+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------

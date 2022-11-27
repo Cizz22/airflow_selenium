@@ -1,0 +1,18 @@
+[2022-11-27T09:25:36.020+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: saham_one_time_historical.insert_table_saham manual__2022-11-27T09:16:09.888876+00:00 [queued]>
+[2022-11-27T09:25:46.530+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: saham_one_time_historical.insert_table_saham manual__2022-11-27T09:16:09.888876+00:00 [queued]>
+[2022-11-27T09:25:46.603+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-27T09:25:46.614+0000] {taskinstance.py:1363} INFO - Starting attempt 2 of 4
+[2022-11-27T09:25:46.659+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-27T09:25:51.081+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): insert_table_saham> on 2022-11-27 09:16:09.888876+00:00
+[2022-11-27T09:26:16.584+0000] {standard_task_runner.py:55} INFO - Started process 2148 to run task
+[2022-11-27T09:26:23.772+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'saham_one_time_historical', 'insert_table_saham', 'manual__2022-11-27T09:16:09.888876+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/one_time_historical_dag.py', '--cfg-path', '/tmp/tmpvbwmff6s']
+[2022-11-27T09:26:29.553+0000] {standard_task_runner.py:83} INFO - Job 9: Subtask insert_table_saham
+[2022-11-27T09:29:37.528+0000] {task_command.py:376} INFO - Running <TaskInstance: saham_one_time_historical.insert_table_saham manual__2022-11-27T09:16:09.888876+00:00 [running]> on host 3cef85d75852
+[2022-11-27T09:29:42.794+0000] {local_task_job.py:223} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2022-11-27T09:29:55.647+0000] {process_utils.py:133} INFO - Sending Signals.SIGTERM to group 2148. PIDs of all processes in the group: [2148]
+[2022-11-27T09:29:57.015+0000] {process_utils.py:84} INFO - Sending the signal Signals.SIGTERM to group 2148
+[2022-11-27T09:31:05.480+0000] {process_utils.py:147} WARNING - process psutil.Process(pid=2148, name='airflow task ru', status='running', started='09:26:12') did not respond to SIGTERM. Trying SIGKILL
+[2022-11-27T09:31:09.248+0000] {process_utils.py:84} INFO - Sending the signal Signals.SIGKILL to group 2148
+[2022-11-27T09:31:11.978+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=2148, name='airflow task ru', status='terminated', exitcode=<Negsignal.SIGTERM: -15>, started='09:26:12') (2148) terminated with exit code Negsignal.SIGTERM

@@ -1,0 +1,23 @@
+[2022-11-27T13:03:20.548+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: saham_one_time_historical.create_table_sekuritas manual__2022-11-27T13:01:58.513278+00:00 [queued]>
+[2022-11-27T13:03:20.864+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: saham_one_time_historical.create_table_sekuritas manual__2022-11-27T13:01:58.513278+00:00 [queued]>
+[2022-11-27T13:03:20.867+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-27T13:03:20.875+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 4
+[2022-11-27T13:03:20.877+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-27T13:03:21.761+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): create_table_sekuritas> on 2022-11-27 13:01:58.513278+00:00
+[2022-11-27T13:03:21.900+0000] {standard_task_runner.py:55} INFO - Started process 2487 to run task
+[2022-11-27T13:03:22.108+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'saham_one_time_historical', 'create_table_sekuritas', 'manual__2022-11-27T13:01:58.513278+00:00', '--job-id', '86', '--raw', '--subdir', 'DAGS_FOLDER/one_time_historical_dag.py', '--cfg-path', '/tmp/tmp8ah647sg']
+[2022-11-27T13:03:22.251+0000] {standard_task_runner.py:83} INFO - Job 86: Subtask create_table_sekuritas
+[2022-11-27T13:03:26.425+0000] {task_command.py:376} INFO - Running <TaskInstance: saham_one_time_historical.create_table_sekuritas manual__2022-11-27T13:01:58.513278+00:00 [running]> on host 3cef85d75852
+[2022-11-27T13:03:30.608+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=kcb kelompok
+AIRFLOW_CTX_DAG_ID=saham_one_time_historical
+AIRFLOW_CTX_TASK_ID=create_table_sekuritas
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-27T13:01:58.513278+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-11-27T13:01:58.513278+00:00
+[2022-11-27T13:03:33.136+0000] {python.py:177} INFO - Done. Returned value was: None
+[2022-11-27T13:03:33.545+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=saham_one_time_historical, task_id=create_table_sekuritas, execution_date=20221127T130158, start_date=20221127T130320, end_date=20221127T130333
+[2022-11-27T13:03:34.630+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2022-11-27T13:03:36.074+0000] {taskinstance.py:2623} INFO - 0 downstream tasks scheduled from follow-on schedule check

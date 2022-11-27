@@ -1,0 +1,101 @@
+[2022-11-27T10:00:31.187+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: saham_one_time_historical.insert_table_saham manual__2022-11-27T09:54:20.164703+00:00 [queued]>
+[2022-11-27T10:00:31.313+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: saham_one_time_historical.insert_table_saham manual__2022-11-27T09:54:20.164703+00:00 [queued]>
+[2022-11-27T10:00:31.316+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-27T10:00:31.317+0000] {taskinstance.py:1363} INFO - Starting attempt 2 of 4
+[2022-11-27T10:00:31.322+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-27T10:00:31.402+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): insert_table_saham> on 2022-11-27 09:54:20.164703+00:00
+[2022-11-27T10:00:31.434+0000] {standard_task_runner.py:55} INFO - Started process 709 to run task
+[2022-11-27T10:00:31.488+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'saham_one_time_historical', 'insert_table_saham', 'manual__2022-11-27T09:54:20.164703+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/one_time_historical_dag.py', '--cfg-path', '/tmp/tmpd7eu0wa0']
+[2022-11-27T10:00:31.516+0000] {standard_task_runner.py:83} INFO - Job 22: Subtask insert_table_saham
+[2022-11-27T10:00:32.698+0000] {task_command.py:376} INFO - Running <TaskInstance: saham_one_time_historical.insert_table_saham manual__2022-11-27T09:54:20.164703+00:00 [running]> on host 3cef85d75852
+[2022-11-27T10:00:33.896+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=kcb kelompok
+AIRFLOW_CTX_DAG_ID=saham_one_time_historical
+AIRFLOW_CTX_TASK_ID=insert_table_saham
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-27T09:54:20.164703+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-11-27T09:54:20.164703+00:00
+[2022-11-27T10:00:33.982+0000] {connectionpool.py:813} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f668c2f9350>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+[2022-11-27T10:00:34.017+0000] {connectionpool.py:813} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f668c2f9790>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+[2022-11-27T10:00:34.031+0000] {connectionpool.py:813} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f668c2f97d0>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+[2022-11-27T10:00:34.035+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connection.py", line 175, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.7/http/client.py", line 1281, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1327, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1276, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1036, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.7/http/client.py", line 976, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connection.py", line 187, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f668c298250>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/one_time_historical/extract_dim_saham.py", line 53, in insertStockListData
+    data = getstocklistData()
+  File "/opt/airflow/one_time_historical/extract_dim_saham.py", line 19, in getstocklistData
+    data = get_scrap_data(URL)
+  File "/opt/airflow/one_time_historical/utils.py", line 46, in get_scrap_data
+    options=options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 288, in __init__
+    self.start_session(capabilities, browser_profile)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 381, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 442, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/remote_connection.py", line 294, in execute
+    return self._request(command_info[0], url, body=data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/remote_connection.py", line 316, in _request
+    response = self._conn.request(method, url, body=body, headers=headers)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/request.py", line 79, in request
+    method, url, fields=fields, headers=headers, **urlopen_kw
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/request.py", line 170, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/poolmanager.py", line 376, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 828, in urlopen
+    **response_kw
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 828, in urlopen
+    **response_kw
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 828, in urlopen
+    **response_kw
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=4444): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f668c298250>: Failed to establish a new connection: [Errno 111] Connection refused'))
+[2022-11-27T10:00:34.142+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=saham_one_time_historical, task_id=insert_table_saham, execution_date=20221127T095420, start_date=20221127T100031, end_date=20221127T100034
+[2022-11-27T10:00:34.215+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 22 for task insert_table_saham (HTTPConnectionPool(host='127.0.0.1', port=4444): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f668c298250>: Failed to establish a new connection: [Errno 111] Connection refused')); 709)
+[2022-11-27T10:00:34.315+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2022-11-27T10:00:34.534+0000] {taskinstance.py:2623} INFO - 0 downstream tasks scheduled from follow-on schedule check

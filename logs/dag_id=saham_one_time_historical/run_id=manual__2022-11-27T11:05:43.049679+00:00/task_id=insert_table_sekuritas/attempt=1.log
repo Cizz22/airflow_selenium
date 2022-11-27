@@ -1,0 +1,82 @@
+[2022-11-27T11:08:00.163+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: saham_one_time_historical.insert_table_sekuritas manual__2022-11-27T11:05:43.049679+00:00 [queued]>
+[2022-11-27T11:08:01.784+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: saham_one_time_historical.insert_table_sekuritas manual__2022-11-27T11:05:43.049679+00:00 [queued]>
+[2022-11-27T11:08:01.802+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-27T11:08:01.824+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 4
+[2022-11-27T11:08:01.830+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-27T11:08:02.442+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): insert_table_sekuritas> on 2022-11-27 11:05:43.049679+00:00
+[2022-11-27T11:08:02.838+0000] {standard_task_runner.py:55} INFO - Started process 1449 to run task
+[2022-11-27T11:08:04.148+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'saham_one_time_historical', 'insert_table_sekuritas', 'manual__2022-11-27T11:05:43.049679+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/one_time_historical_dag.py', '--cfg-path', '/tmp/tmpi2w8lwvr']
+[2022-11-27T11:08:04.244+0000] {standard_task_runner.py:83} INFO - Job 34: Subtask insert_table_sekuritas
+[2022-11-27T11:08:07.487+0000] {task_command.py:376} INFO - Running <TaskInstance: saham_one_time_historical.insert_table_sekuritas manual__2022-11-27T11:05:43.049679+00:00 [running]> on host 3cef85d75852
+[2022-11-27T11:08:11.688+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=kcb kelompok
+AIRFLOW_CTX_DAG_ID=saham_one_time_historical
+AIRFLOW_CTX_TASK_ID=insert_table_sekuritas
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-27T11:05:43.049679+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-11-27T11:05:43.049679+00:00
+[2022-11-27T11:09:38.831+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/one_time_historical/extract_dim_sekuritas.py", line 38, in insertBrokerListData
+    data = getBrokerlistData()
+  File "/opt/airflow/one_time_historical/extract_dim_sekuritas.py", line 16, in getBrokerlistData
+    data = get_scrap_data(URL)
+  File "/opt/airflow/one_time_historical/utils.py", line 45, in get_scrap_data
+    options=options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 288, in __init__
+    self.start_session(capabilities, browser_profile)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 381, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 444, in execute
+    self.error_handler.check_response(response)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/errorhandler.py", line 249, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: Could not start a new session. Error while creating session with the driver service. Stopping driver service: Could not start a new session. Response code 500. Message: unknown error: DevToolsActivePort file doesn't exist 
+Host info: host: 'a9e262e67f29', ip: '172.24.0.4'
+Build info: version: '4.6.0', revision: '79f1c02ae20'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '5.10.76-linuxkit', java.version: '11.0.16'
+Driver info: driver.version: unknown
+Build info: version: '4.6.0', revision: '79f1c02ae20'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '5.10.76-linuxkit', java.version: '11.0.16'
+Driver info: driver.version: unknown
+Stacktrace:
+    at org.openqa.selenium.grid.node.config.DriverServiceSessionFactory.apply (DriverServiceSessionFactory.java:202)
+    at org.openqa.selenium.grid.node.config.DriverServiceSessionFactory.apply (DriverServiceSessionFactory.java:69)
+    at org.openqa.selenium.grid.node.local.SessionSlot.apply (SessionSlot.java:147)
+    at org.openqa.selenium.grid.node.local.LocalNode.newSession (LocalNode.java:372)
+    at org.openqa.selenium.grid.distributor.local.LocalDistributor.startSession (LocalDistributor.java:645)
+    at org.openqa.selenium.grid.distributor.local.LocalDistributor.newSession (LocalDistributor.java:564)
+    at org.openqa.selenium.grid.distributor.local.LocalDistributor$NewSessionRunnable.handleNewSessionRequest (LocalDistributor.java:818)
+    at org.openqa.selenium.grid.distributor.local.LocalDistributor$NewSessionRunnable.lambda$run$1 (LocalDistributor.java:779)
+    at java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1128)
+    at java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:628)
+    at java.lang.Thread.run (Thread.java:829)
+[2022-11-27T11:09:42.621+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=saham_one_time_historical, task_id=insert_table_sekuritas, execution_date=20221127T110543, start_date=20221127T110801, end_date=20221127T110942
+[2022-11-27T11:09:44.489+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 34 for task insert_table_sekuritas (Message: Could not start a new session. Error while creating session with the driver service. Stopping driver service: Could not start a new session. Response code 500. Message: unknown error: DevToolsActivePort file doesn't exist 
+Host info: host: 'a9e262e67f29', ip: '172.24.0.4'
+Build info: version: '4.6.0', revision: '79f1c02ae20'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '5.10.76-linuxkit', java.version: '11.0.16'
+Driver info: driver.version: unknown
+Build info: version: '4.6.0', revision: '79f1c02ae20'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '5.10.76-linuxkit', java.version: '11.0.16'
+Driver info: driver.version: unknown
+Stacktrace:
+    at org.openqa.selenium.grid.node.config.DriverServiceSessionFactory.apply (DriverServiceSessionFactory.java:202)
+    at org.openqa.selenium.grid.node.config.DriverServiceSessionFactory.apply (DriverServiceSessionFactory.java:69)
+    at org.openqa.selenium.grid.node.local.SessionSlot.apply (SessionSlot.java:147)
+    at org.openqa.selenium.grid.node.local.LocalNode.newSession (LocalNode.java:372)
+    at org.openqa.selenium.grid.distributor.local.LocalDistributor.startSession (LocalDistributor.java:645)
+    at org.openqa.selenium.grid.distributor.local.LocalDistributor.newSession (LocalDistributor.java:564)
+    at org.openqa.selenium.grid.distributor.local.LocalDistributor$NewSessionRunnable.handleNewSessionRequest (LocalDistributor.java:818)
+    at org.openqa.selenium.grid.distributor.local.LocalDistributor$NewSessionRunnable.lambda$run$1 (LocalDistributor.java:779)
+    at java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1128)
+    at java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:628)
+    at java.lang.Thread.run (Thread.java:829); 1449)
+[2022-11-27T11:10:03.791+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2022-11-27T11:10:21.397+0000] {taskinstance.py:2623} INFO - 0 downstream tasks scheduled from follow-on schedule check

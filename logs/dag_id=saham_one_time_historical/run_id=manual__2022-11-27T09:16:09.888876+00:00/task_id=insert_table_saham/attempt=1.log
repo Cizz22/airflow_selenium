@@ -1,0 +1,115 @@
+[2022-11-27T09:16:57.378+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: saham_one_time_historical.insert_table_saham manual__2022-11-27T09:16:09.888876+00:00 [queued]>
+[2022-11-27T09:16:57.652+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: saham_one_time_historical.insert_table_saham manual__2022-11-27T09:16:09.888876+00:00 [queued]>
+[2022-11-27T09:16:57.677+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-27T09:16:57.684+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 4
+[2022-11-27T09:16:57.700+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-27T09:16:57.864+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): insert_table_saham> on 2022-11-27 09:16:09.888876+00:00
+[2022-11-27T09:16:57.953+0000] {standard_task_runner.py:55} INFO - Started process 1886 to run task
+[2022-11-27T09:16:57.997+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'saham_one_time_historical', 'insert_table_saham', 'manual__2022-11-27T09:16:09.888876+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/one_time_historical_dag.py', '--cfg-path', '/tmp/tmp1w1fdqpc']
+[2022-11-27T09:16:58.272+0000] {standard_task_runner.py:83} INFO - Job 8: Subtask insert_table_saham
+[2022-11-27T09:17:01.898+0000] {task_command.py:376} INFO - Running <TaskInstance: saham_one_time_historical.insert_table_saham manual__2022-11-27T09:16:09.888876+00:00 [running]> on host 3cef85d75852
+[2022-11-27T09:17:02.910+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=kcb kelompok
+AIRFLOW_CTX_DAG_ID=saham_one_time_historical
+AIRFLOW_CTX_TASK_ID=insert_table_saham
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-27T09:16:09.888876+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-11-27T09:16:09.888876+00:00
+[2022-11-27T09:17:03.318+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/local/lib/python3.7/http/client.py", line 1281, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1327, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1276, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1036, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.7/http/client.py", line 976, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/transport/unixconn.py", line 30, in connect
+    sock.connect(self.unix_socket)
+FileNotFoundError: [Errno 2] No such file or directory
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/adapters.py", line 499, in send
+    timeout=timeout,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/local/lib/python3.7/http/client.py", line 1281, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1327, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1276, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1036, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.7/http/client.py", line 976, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/transport/unixconn.py", line 30, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 214, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/utils/decorators.py", line 46, in inner
+    return f(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 237, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/adapters.py", line 547, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/one_time_historical/extract_dim_saham.py", line 53, in insertStockListData
+    data = getstocklistData()
+  File "/opt/airflow/one_time_historical/extract_dim_saham.py", line 19, in getstocklistData
+    data = get_scrap_data(URL)
+  File "/opt/airflow/one_time_historical/utils.py", line 34, in get_scrap_data
+    client = docker.from_env()
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/client.py", line 101, in from_env
+    **kwargs_from_env(**kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 197, in __init__
+    self._version = self._retrieve_server_version()
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 222, in _retrieve_server_version
+    f'Error while fetching server API version: {e}'
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))
+[2022-11-27T09:17:03.444+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=saham_one_time_historical, task_id=insert_table_saham, execution_date=20221127T091609, start_date=20221127T091657, end_date=20221127T091703
+[2022-11-27T09:17:03.489+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 8 for task insert_table_saham (Error while fetching server API version: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory')); 1886)
+[2022-11-27T09:17:03.584+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2022-11-27T09:17:03.726+0000] {taskinstance.py:2623} INFO - 0 downstream tasks scheduled from follow-on schedule check

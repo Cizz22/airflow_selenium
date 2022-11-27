@@ -24,4 +24,3 @@ class SeleniumOperator(BaseOperator):
         hook.create_container()
         hook.create_driver()
         hook.run_script(self.script, self.script_args)
-        hook.remove_container()

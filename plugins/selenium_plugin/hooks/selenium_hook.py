@@ -23,21 +23,12 @@ class SeleniumHook(BaseHook):
         Creates the selenium docker container
         '''
         logging.info('creating_container')
-        self.downloads = 'downloads' # test named volume
-        self.sel_downloads = '/home/seluser/downloads'
-        volumes = ['{}:{}'.format(self.downloads,
-                                  self.sel_downloads),
-                   '/dev/shm:/dev/shm']
         client = docker.from_env()
-        container = client.containers.run('docker_selenium:latest',
-                                          volumes=volumes,
-                                          network='container_bridge',
-                                          detach=True)
-        self.container = container
+        container = client.containers.get('selenium')
         cli = docker.APIClient()
         self.container_ip = cli.inspect_container(
             container.id)['NetworkSettings'][
-                'Networks']['container_bridge']['IPAddress']
+                'Networks']['IPAddress']
 
     def create_driver(self):
         '''
@@ -62,9 +53,10 @@ class SeleniumHook(BaseHook):
         # Enable downloads in headless chrome.
         driver.command_executor._commands["send_command"] = (
             "POST", '/session/$sessionId/chromium/send_command')
+        
         params = {'cmd': 'Page.setDownloadBehavior',
-                  'params': {'behavior': 'allow',
-                             'downloadPath': self.sel_downloads}}
+                  'params': {'behavior': 'allow', 'downloadPath': '/tmp'}}
+        
         driver.execute("send_command", params)
         self.driver = driver
 
